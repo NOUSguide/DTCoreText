@@ -306,6 +306,14 @@ extern unsigned int default_css_len;
 	
 	NSMutableDictionary *tmpDict = [NSMutableDictionary dictionary];
 	
+	// Get based on all tags
+	NSDictionary *byAllTagName = [self.styles objectForKey:@"*"];
+	
+	if (byAllTagName)
+	{
+		[tmpDict addEntriesFromDictionary:byAllTagName];
+	}
+	
 	// Get based on element
 	NSDictionary *byTagName = [self.styles objectForKey:element.tagName];
 	
